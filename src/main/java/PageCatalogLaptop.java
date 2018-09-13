@@ -15,6 +15,7 @@ public class PageCatalogLaptop {
     private By titleElement = By.xpath("//div[@class=\"n-snippet-card2__header n-snippet-card2__header_has_rating\"]//div[@class=\"n-snippet-card2__title\"]");
     private By priceElement = By.xpath("//div[@class=\"price\"]");
     private By saleElement = By.xpath("//div[@class=\"stickers__sticker stickers__sticker_type_discount\"]");
+    private By imageProductLaptop = By.xpath("//a[@class=\"n-snippet-card2__image link link_type_cpc i-bem link_js_inited\"]/img[@class=\"image\"]");
 
     public By getTitleElement() {
         return titleElement;

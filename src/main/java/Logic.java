@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Logic {
-
     private WebDriver driver;
     private List <WebElement> catalog;
     private ArrayList <Integer> titleList = new ArrayList();
