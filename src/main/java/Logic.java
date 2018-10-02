@@ -1,10 +1,12 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Logic {
+    static WebDriverWait wait;
     private WebDriver driver;
     private List <WebElement> catalog;
     private ArrayList <Integer> titleList = new ArrayList();
@@ -25,9 +27,10 @@ public class Logic {
     }
 
     public void dataСollectionNameProduct() {
-
+//        wait = (new WebDriverWait(driver, 10));
+//        wait.until(ExpectedConditions.presenceOfElementLocated(pageCatalogLaptop.getImageProductLaptop()));
         catalog = driver.findElements(pageCatalogLaptop.getTitleElement());
-
+        System.out.println(catalog.size());
 //        цикл пролистывает страницы, и добавляет данные в лист catalog
 //        for (int i = 0; i < 10; i++) {
 //

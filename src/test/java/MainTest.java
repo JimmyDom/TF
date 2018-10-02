@@ -36,7 +36,7 @@ public class MainTest {
     public void firstTest(){
         try {
             mainPage.closeJS();
-            mainPage.clicProductLaptop();
+            mainPage.clickProductLaptop();
         } catch (Exception e){
             System.out.println(e);
         }
@@ -67,7 +67,7 @@ public class MainTest {
     public void SecondTest(){
         try {
             mainPage.closeJS();
-            mainPage.clicProductLaptop();
+            mainPage.clickProductLaptop();
         } catch (Exception e){
             System.out.println(e);
         }
@@ -102,7 +102,7 @@ public class MainTest {
     public void SortPriseTestASC() {
         try {
             mainPage.closeJS();
-            mainPage.clicProductLaptop();
+            mainPage.clickProductLaptop();
         } catch (Exception e){
             System.out.println(e);
         }
@@ -136,7 +136,7 @@ public class MainTest {
     public void SortPriseTestDESC() {
         try {
             mainPage.closeJS();
-            mainPage.clicProductLaptop();
+            mainPage.clickProductLaptop();
         } catch (Exception e){
             System.out.println(e);
         }
@@ -176,7 +176,7 @@ public class MainTest {
     public void SortSaleTest() {
         try {
             mainPage.closeJS();
-            mainPage.clicProductLaptop();
+            mainPage.clickProductLaptop();
         } catch (Exception e){
             System.out.println(e);
         }
