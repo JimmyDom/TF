@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -52,16 +51,18 @@ public class MainTest {
         }
         try{
             Thread.sleep(10000);
-            logic.dataСollectionNameProduct();
+            logic.dataСollectionNameProduct("TitleProduct");
         } catch (Exception e){
             System.out.println(e);
         }
-        for (WebElement catalog: logic.getCatalog()){
-            Assertions.assertTrue(catalog.getText().contains("ASUS"));
-            System.out.println(catalog.getText());
+        if (logic.getTitleAll().size() <= 0){
+            Assertions.assertTrue(false);
+        } else{
+            for (String catalog: logic.getTitleAll()){
+                Assertions.assertTrue(catalog.contains("ASUS"));
+                System.out.println(catalog);
+            }
         }
-
-
     }
     @Test
     public void SecondTest(){
@@ -88,13 +89,17 @@ public class MainTest {
         }
         try{
             Thread.sleep(10000);
-            logic.dataСollectionNameProduct();
+            logic.dataСollectionNameProduct("TitleProduct");
         } catch (Exception e){
             System.out.println(e);
         }
-        for (WebElement catalog: logic.getCatalog()){
-            Assertions.assertTrue(catalog.getText().contains("Apple") || catalog.getText().contains("Xiaomi"));
-            System.out.println(catalog.getText());
+        if (logic.getTitleAll().size() <= 0){
+            Assertions.assertTrue(false);
+        } else{
+        for (String catalog: logic.getTitleAll()) {
+            Assertions.assertTrue(catalog.contains("Apple") || catalog.contains("Xiaomi"));
+            System.out.println(catalog);
+            }
         }
     }
 
@@ -205,6 +210,8 @@ public class MainTest {
 
         Assertions.assertEquals(true, logic.isBool());
     }
+//    @Test
+//    public void
 
     @AfterEach
     public void tearDown() {

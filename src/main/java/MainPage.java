@@ -9,7 +9,7 @@ public class MainPage {
         this.driver = driver;
     }
 
-        private By buttonProductComputers = By.cssSelector("li.topmenu__item:nth-child(2) > a:nth-child(1)");
+    private By buttonProductComputers = By.cssSelector("li.topmenu__item:nth-child(2) > a:nth-child(1)");
     private By buttonSignIn = By.xpath("//span[text()='Войти']");
     private By buttonJS = By.cssSelector(".button2_theme_action");
 
