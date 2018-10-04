@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class MainTest {
+public class MainTestLaptop {
         private WebDriver driver;
         private MainPage mainPage;
         private ComputersTechnic computersTechnic;
@@ -29,10 +29,7 @@ public class MainTest {
         computersTechnic = new ComputersTechnic(driver);
         pageCatalogLaptop = new PageCatalogLaptop(driver);
         logic = new Logic(driver);
-    }
 
-    @Test
-    public void firstTest(){
         try {
             mainPage.closeJS();
             mainPage.clickProductLaptop();
@@ -44,6 +41,10 @@ public class MainTest {
         }catch (Exception e){
             System.out.println(e);
         }
+    }
+
+    @Test
+    public void firstTestLaptop(){
         try {
             pageCatalogLaptop.clickCheckbox("ASUS");
         }catch (Exception e){
@@ -65,18 +66,7 @@ public class MainTest {
         }
     }
     @Test
-    public void SecondTest(){
-        try {
-            mainPage.closeJS();
-            mainPage.clickProductLaptop();
-        } catch (Exception e){
-            System.out.println(e);
-        }
-        try {
-            computersTechnic.clickLeftMenuLaptop();
-        }catch (Exception e){
-            System.out.println(e);
-        }
+    public void SecondTestLaptop(){
         try {
             pageCatalogLaptop.clickCheckbox("Apple");
         }catch (Exception e){
@@ -106,17 +96,6 @@ public class MainTest {
     @Test
     public void SortPriseTestASC() {
         try {
-            mainPage.closeJS();
-            mainPage.clickProductLaptop();
-        } catch (Exception e){
-            System.out.println(e);
-        }
-        try {
-            computersTechnic.clickLeftMenuLaptop();
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        try {
             pageCatalogLaptop.clickCheckbox("Prestigio");
         }catch (Exception e){
             System.out.println(e);
@@ -139,17 +118,6 @@ public class MainTest {
 
     @Test
     public void SortPriseTestDESC() {
-        try {
-            mainPage.closeJS();
-            mainPage.clickProductLaptop();
-        } catch (Exception e){
-            System.out.println(e);
-        }
-        try {
-            computersTechnic.clickLeftMenuLaptop();
-        }catch (Exception e){
-            System.out.println(e);
-        }
         try {
             pageCatalogLaptop.clickCheckbox("Lenovo");
         }catch (Exception e){
@@ -180,17 +148,6 @@ public class MainTest {
     @Test
     public void SortSaleTest() {
         try {
-            mainPage.closeJS();
-            mainPage.clickProductLaptop();
-        } catch (Exception e){
-            System.out.println(e);
-        }
-        try {
-            computersTechnic.clickLeftMenuLaptop();
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        try {
             pageCatalogLaptop.clickCheckbox("Apple");
         }catch (Exception e){
             System.out.println(e);
@@ -210,8 +167,38 @@ public class MainTest {
 
         Assertions.assertEquals(true, logic.isBool());
     }
-//    @Test
-//    public void
+    @Test
+    public void RemoveCheckboxTest(){
+        try {
+            pageCatalogLaptop.clickCheckbox("Alienware");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        try {
+            pageCatalogLaptop.clickCheckbox("Xiaomi");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        try {
+            pageCatalogLaptop.clickCheckbox("Xiaomi");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        try{
+            Thread.sleep(10000);
+            logic.dataСollectionNameProduct("TitleProduct");
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        if (logic.getTitleAll().size() <= 0){
+            Assertions.assertTrue(false);
+        } else{
+            for (String catalog: logic.getTitleAll()) {
+                Assertions.assertTrue(catalog.contains("Alienware"));
+                System.out.println(catalog);
+            }
+        }
+    }
 
     @AfterEach
     public void tearDown() {

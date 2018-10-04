@@ -15,7 +15,8 @@ public class Logic {
     private boolean bool = false;
     By cssSelectorDataCollection;
 
-    PageCatalogLaptop pageCatalogLaptop = new PageCatalogLaptop(driver);
+    PageCatalogLaptop pageCatalogLaptop = new PageCatalogLaptop(null);
+    PageCatalogMobilePhone pageCatalogMobilePhone = new PageCatalogMobilePhone(null);
 
 
     public Logic(WebDriver driver) {
@@ -48,13 +49,16 @@ public class Logic {
         else if (title.equals("Sale")){
             cssSelectorDataCollection = pageCatalogLaptop.getSaleElement();
         }
+        else if (title.equals("TitleProductPhone")){
+            cssSelectorDataCollection = pageCatalogMobilePhone.getTitleElementPhone();
+        }
 
         for (int i = 0; i < 5; i++) {   //        цикл пролистывает страницы, и добавляет данные в массив
 
             try {
                 Thread.sleep(10000);
                 catalog = driver.findElements(cssSelectorDataCollection);
-
+                System.out.println(catalog.size()); //временно
                 for(WebElement catalog1 : catalog ) {
                     titleAll.add(catalog1.getText());
                 }
