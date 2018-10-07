@@ -66,6 +66,34 @@ public class TestMobilePhone {
         }
     }
 
+    @Test
+    public void SecondTestMobile(){
+        try {
+            pageCatalogMobilePhone.clickCheckox("Apple");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        try {
+            pageCatalogMobilePhone.clickCheckox("Meizu");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        try{
+            Thread.sleep(10000);
+            logic.dataСollectionNameProduct("TitleProduct");
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        if (logic.getTitleAll().size() <= 0){
+            Assertions.assertTrue(false);
+        } else{
+            for (String catalog: logic.getTitleAll()) {
+                Assertions.assertTrue(catalog.contains("Apple") || catalog.contains("Meizu"));
+                System.out.println(catalog);
+            }
+        }
+    }
+
     @AfterEach
     public void tearDown() {
         driver.quit();

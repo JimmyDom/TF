@@ -1,19 +1,17 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class PageCatalogLaptop {
+/* в этом классе описана страница с каталогом ноутбуков */
 
+public class PageCatalogLaptop {
     private WebDriver driver;
     private String checkXpath = "//span[text()='%s']";
     private By buttonNext = By.cssSelector("a.button:nth-child(7)");
-    private By topSortPrice = By.cssSelector("div.n-filter-sorter:nth-child(3) > a:nth-child(1)");
-    private By buttonTopSale = By.cssSelector("div.n-filter-sorter:nth-child(6) > a:nth-child(1)");
     private By titleElement = By.xpath("//div[@class=\"n-snippet-card2__header n-snippet-card2__header_has_rating\"]" +
             "//div[@class=\"n-snippet-card2__title\"]");
     private By priceElement = By.xpath("//div[@class=\"price\"]");
     private By saleElement = By.xpath("//div[@class=\"stickers__sticker stickers__sticker_type_discount\"]");
     private By imageProductLaptop = By.xpath("//a[@class=\"link i-bem link_js_inited\"]//img[@class=\"footer-market__promo-image\"]");
-
 
     public PageCatalogLaptop(WebDriver driver){
         this.driver = driver;
@@ -53,14 +51,6 @@ public class PageCatalogLaptop {
     public PageCatalogLaptop clickNext(){
         driver.findElement(buttonNext).click();
         return this;
-    }
-    public PageCatalogLaptop clickTopSort() {
-        driver.findElement(topSortPrice).click();
-        return this;
-    }
-    public PageCatalogLaptop clickSale(){
-        driver.findElement(buttonTopSale).click();
-        return  this;
     }
 
 }

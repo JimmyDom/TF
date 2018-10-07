@@ -11,8 +11,9 @@ public class MainPage {
 
     private By buttonProductComputers = By.cssSelector("li.topmenu__item:nth-child(2) > a:nth-child(1)");
     private By buttonProductElectronics = By.cssSelector("li.topmenu__item:nth-child(1) > a:nth-child(1)");
-    private By buttonSignIn = By.xpath("//span[text()='Войти']");
     private By buttonJS = By.cssSelector(".button2_theme_action");
+    private By topSortPrice = By.cssSelector("div.n-filter-sorter:nth-child(3) > a:nth-child(1)");
+    private By buttonTopSale = By.cssSelector("div.n-filter-sorter:nth-child(6) > a:nth-child(1)");
 
     public MainPage closeJS(){
         driver.findElement(buttonJS).click();
@@ -27,6 +28,13 @@ public class MainPage {
     public ElectronicsTechnic clickProductsElectronics(){
         driver.findElement(buttonProductElectronics).click();
         return new ElectronicsTechnic(driver);
+    }
+    public void clickTopSort() {
+        driver.findElement(topSortPrice).click();
+    }
+
+    public void clickSale(){
+        driver.findElement(buttonTopSale).click();
     }
 
 }

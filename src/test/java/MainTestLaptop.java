@@ -102,7 +102,7 @@ public class MainTestLaptop {
         }
         try {
             Thread.sleep(10000);
-            pageCatalogLaptop.clickTopSort();
+            mainPage.clickTopSort();
         }catch (Exception e){
             System.out.println(e);
         }
@@ -125,13 +125,13 @@ public class MainTestLaptop {
         }
         try {
             Thread.sleep(10000);
-            pageCatalogLaptop.clickTopSort();
+            mainPage.clickTopSort();
         }catch (Exception e){
             System.out.println(e);
         }
         try {
             Thread.sleep(10000);
-            pageCatalogLaptop.clickTopSort();
+            mainPage.clickTopSort();
         }catch (Exception e){
             System.out.println(e);
         }
@@ -154,7 +154,7 @@ public class MainTestLaptop {
         }
         try {
             Thread.sleep(10000);
-            pageCatalogLaptop.clickSale();
+            mainPage.clickSale();
         }catch (Exception e){
             System.out.println(e);
         }

@@ -53,11 +53,18 @@ public class Logic {
             cssSelectorDataCollection = pageCatalogMobilePhone.getTitleElementPhone();
         }
 
-        for (int i = 0; i < 5; i++) {   //        цикл пролистывает страницы, и добавляет данные в массив
+        dateCollectionPageFlipping(cssSelectorDataCollection);
+
+    }
+
+    public void dateCollectionPageFlipping(By dataCollection){
+
+        //        цикл пролистывает страницы, и добавляет данные в массив
+        for (int i = 0; i < 5; i++) {
 
             try {
                 Thread.sleep(10000);
-                catalog = driver.findElements(cssSelectorDataCollection);
+                catalog = driver.findElements(dataCollection);
                 System.out.println(catalog.size()); //временно
                 for(WebElement catalog1 : catalog ) {
                     titleAll.add(catalog1.getText());
@@ -68,7 +75,6 @@ public class Logic {
             }
         }
     }
-
 
     public void dataCollectionPriceSort(String symbol, String whatElement){
         // присваиваем переменную title методу dataСollectionNameProduct
