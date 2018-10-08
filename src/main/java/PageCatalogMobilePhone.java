@@ -1,6 +1,10 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+/**
+ *  в этом классе описана страница с каталогом мобильных телефонов
+ *  */
+
 public class PageCatalogMobilePhone {
     private WebDriver driver;
     private String xpathCheckPhone = "//span[text()='%s']";

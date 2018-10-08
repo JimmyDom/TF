@@ -14,6 +14,16 @@ public class MainPage {
     private By buttonJS = By.cssSelector(".button2_theme_action");
     private By topSortPrice = By.cssSelector("div.n-filter-sorter:nth-child(3) > a:nth-child(1)");
     private By buttonTopSale = By.cssSelector("div.n-filter-sorter:nth-child(6) > a:nth-child(1)");
+    //две переменные ниже представлены во всех страницах одинаковыми
+    private By priceElement = By.xpath("//div[@class=\"price\"]");
+    private By saleElement = By.xpath("//div[@class=\"stickers__sticker stickers__sticker_type_discount\"]");
+
+    public By getPriceElement() {
+        return priceElement;
+    }
+    public By getSaleElement() {
+        return saleElement;
+    }
 
     public MainPage closeJS(){
         driver.findElement(buttonJS).click();

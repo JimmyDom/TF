@@ -9,6 +9,7 @@ import java.util.List;
 public class Logic {
     static WebDriverWait wait;
     private WebDriver driver;
+    private MainPage mainPage = new MainPage(null);
     private List <WebElement> catalog;
     private ArrayList <Integer> titleList = new ArrayList();
     private ArrayList <String> titleAll = new ArrayList();
@@ -44,10 +45,10 @@ public class Logic {
            cssSelectorDataCollection = pageCatalogLaptop.getTitleElement();
         }
         else if (title.equals("Price")){
-            cssSelectorDataCollection = pageCatalogLaptop.getPriceElement();
+            cssSelectorDataCollection = mainPage.getPriceElement();
         }
         else if (title.equals("Sale")){
-            cssSelectorDataCollection = pageCatalogLaptop.getSaleElement();
+            cssSelectorDataCollection = mainPage.getSaleElement();
         }
         else if (title.equals("TitleProductPhone")){
             cssSelectorDataCollection = pageCatalogMobilePhone.getTitleElementPhone();
@@ -78,13 +79,7 @@ public class Logic {
 
     public void dataCollectionPriceSort(String symbol, String whatElement){
         // присваиваем переменную title методу dataСollectionNameProduct
-        if (whatElement.equals("Price")) {
-             dataСollectionNameProduct(whatElement);
-        }
-        else if (whatElement.equals("Sale")){
-            dataСollectionNameProduct(whatElement);
-        }
-        System.out.println(titleAll.size());
+        dataСollectionNameProduct(whatElement);
 
         // распарсенные данные переносим в массив в числовом виде
         for (String catalog: titleAll){
