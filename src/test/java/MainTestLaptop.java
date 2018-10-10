@@ -52,7 +52,7 @@ public class MainTestLaptop {
         }
         try{
             Thread.sleep(10000);
-            logic.dataСollectionNameProduct("TitleProduct");
+            logic.dataСollectionNameProduct("TitleProductLaptop");
         } catch (Exception e){
             System.out.println(e);
         }
@@ -79,7 +79,7 @@ public class MainTestLaptop {
         }
         try{
             Thread.sleep(10000);
-            logic.dataСollectionNameProduct("TitleProduct");
+            logic.dataСollectionNameProduct("TitleProductLaptop");
         } catch (Exception e){
             System.out.println(e);
         }
@@ -186,7 +186,7 @@ public class MainTestLaptop {
         }
         try{
             Thread.sleep(10000);
-            logic.dataСollectionNameProduct("TitleProduct");
+            logic.dataСollectionNameProduct("TitleProductLaptop");
         } catch (Exception e){
             System.out.println(e);
         }
@@ -195,6 +195,39 @@ public class MainTestLaptop {
         } else{
             for (String catalog: logic.getTitleAll()) {
                 Assertions.assertTrue(catalog.contains("Alienware"));
+                System.out.println(catalog);
+            }
+        }
+    }
+
+    @Test
+    public void HiddenCheckboxLaptop(){
+        try {
+            pageCatalogLaptop.clickButtonShowAll();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        try{
+            pageCatalogLaptop.searchElement("KREZ");
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        try {
+            pageCatalogLaptop.clickCheckbox("KREZ");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        try{
+            Thread.sleep(10000);
+            logic.dataСollectionNameProduct("TitleProductLaptop");
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        if (logic.getTitleAll().size() <= 0){
+            Assertions.assertTrue(false);
+        } else{
+            for (String catalog: logic.getTitleAll()){
+                Assertions.assertTrue(catalog.contains("KREZ"));
                 System.out.println(catalog);
             }
         }

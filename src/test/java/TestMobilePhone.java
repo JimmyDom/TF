@@ -187,7 +187,7 @@ public class TestMobilePhone {
         }
         try{
             Thread.sleep(10000);
-            logic.dataСollectionNameProduct("TitleProduct");
+            logic.dataСollectionNameProduct("TitleProductPhone");
         } catch (Exception e){
             System.out.println(e);
         }
@@ -195,7 +195,40 @@ public class TestMobilePhone {
             Assertions.assertTrue(false);
         } else{
             for (String catalog: logic.getTitleAll()) {
-                Assertions.assertTrue(catalog.contains("Alienware"));
+                Assertions.assertTrue(catalog.contains("Samsung"));
+                System.out.println(catalog);
+            }
+        }
+    }
+
+    @Test
+    public void HiddenCheckboxMobilePhone(){
+        try {
+            pageCatalogMobilePhone.clickButtonShowAll();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        try{
+            pageCatalogMobilePhone.searchElement("Moto");
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        try {
+            pageCatalogMobilePhone.clickCheckox("Motorola");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        try{
+            Thread.sleep(10000);
+            logic.dataСollectionNameProduct("TitleProductPhone");
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        if (logic.getTitleAll().size() <= 0){
+            Assertions.assertTrue(false);
+        } else{
+            for (String catalog: logic.getTitleAll()){
+                Assertions.assertTrue(catalog.contains("Motorola"));
                 System.out.println(catalog);
             }
         }

@@ -41,7 +41,7 @@ public class Logic {
 //        wait = (new WebDriverWait(driver, 10));
 //        wait.until(ExpectedConditions.presenceOfElementLocated(pageCatalogLaptop.getImageProductLaptop()));
 
-        if (title.equals("TitleProduct")){  // присваиваем cssSelector взависимости от того какой тест выполняем
+        if (title.equals("TitleProductLaptop")){  // присваиваем cssSelector взависимости от того какой тест выполняем
            cssSelectorDataCollection = pageCatalogLaptop.getTitleElement();
         }
         else if (title.equals("Price")){
