@@ -1,7 +1,11 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.AfterEach;
+//import org.junit.jupiter.api.Assertions;
+//import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,7 +18,7 @@ public class TestMobilePhone {
     private PageCatalogMobilePhone pageCatalogMobilePhone;
     private Logic logic;
 
-    @BeforeEach
+    @Before
     public void setUp(){
         DriverLoader driverLoader = new DriverLoader();
         driverLoader.DriverLoader();
@@ -57,10 +61,10 @@ public class TestMobilePhone {
             System.out.println(e);
         }
         if (logic.getTitleAll().size() <= 0){
-            Assertions.assertTrue(false);
+            Assert.assertTrue(false);
         } else{
             for (String catalog: logic.getTitleAll()){
-                Assertions.assertTrue(catalog.contains("Apple"));
+                Assert.assertTrue(catalog.contains("Apple"));
                 System.out.println(catalog);
             }
         }
@@ -85,10 +89,10 @@ public class TestMobilePhone {
             System.out.println(e);
         }
         if (logic.getTitleAll().size() <= 0){
-            Assertions.assertTrue(false);
+            Assert.assertTrue(false);
         } else{
             for (String catalog: logic.getTitleAll()) {
-                Assertions.assertTrue(catalog.contains("Apple") || catalog.contains("Meizu"));
+                Assert.assertTrue(catalog.contains("Apple") || catalog.contains("Meizu"));
                 System.out.println(catalog);
             }
         }
@@ -114,7 +118,7 @@ public class TestMobilePhone {
             System.out.println(e);
         }
 
-        Assertions.assertEquals(true, logic.isBool());
+        Assert.assertEquals(true, logic.isBool());
     }
 
     @Test
@@ -143,7 +147,7 @@ public class TestMobilePhone {
             System.out.println(e);
         }
 
-        Assertions.assertEquals(true, logic.isBool());
+        Assert.assertEquals(true, logic.isBool());
     }
 
     @Test
@@ -166,7 +170,7 @@ public class TestMobilePhone {
             System.out.println(e);
         }
 
-        Assertions.assertEquals(true, logic.isBool());
+        Assert.assertEquals(true, logic.isBool());
     }
     @Test
     public void RemoveCheckboxTest(){
@@ -192,10 +196,10 @@ public class TestMobilePhone {
             System.out.println(e);
         }
         if (logic.getTitleAll().size() <= 0){
-            Assertions.assertTrue(false);
+            Assert.assertTrue(false);
         } else{
             for (String catalog: logic.getTitleAll()) {
-                Assertions.assertTrue(catalog.contains("Samsung"));
+                Assert.assertTrue(catalog.contains("Samsung"));
                 System.out.println(catalog);
             }
         }
@@ -225,16 +229,16 @@ public class TestMobilePhone {
             System.out.println(e);
         }
         if (logic.getTitleAll().size() <= 0){
-            Assertions.assertTrue(false);
+            Assert.assertTrue(false);
         } else{
             for (String catalog: logic.getTitleAll()){
-                Assertions.assertTrue(catalog.contains("Motorola"));
+                Assert.assertTrue(catalog.contains("Motorola"));
                 System.out.println(catalog);
             }
         }
     }
 
-    @AfterEach
+    @After
     public void tearDown() {
         driver.quit();
     }
